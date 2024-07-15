@@ -1,10 +1,9 @@
 # General resource classes
 # NB plural name resources used to not overwrite python stl lib module 'resource'.
-
+from django.conf import settings
 from django.db import models
 from django.db.models import SET_NULL, PROTECT
 
-from resources.models import User
 
 grade_levels = [
     (
@@ -47,11 +46,11 @@ class Subject(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(
-        User, related_name="subject_created_by", on_delete=PROTECT
+        settings.AUTH_USER_MODEL, related_name="subject_created_by", on_delete=PROTECT
     )  # This should prevent deletion of a user who has authored stuff.
     updated = models.DateTimeField(auto_now=True)
     updated_by = models.ForeignKey(
-        User, related_name="subject_updated_by", on_delete=PROTECT
+        settings.AUTH_USER_MODEL, related_name="subject_updated_by", on_delete=PROTECT
     )
 
     def __str__(self):
@@ -62,16 +61,17 @@ class Topic(models.Model):
     short_name = models.CharField(max_length=50)
     long_name = models.CharField(blank=True, max_length=255)
     description = models.CharField(blank=True, max_length=255)
+    subject = models.ForeignKey(Subject, on_delete=PROTECT)
 
     active = models.BooleanField(default=True)
 
     created = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(
-        User, related_name="topic_created_by", on_delete=PROTECT
+        settings.AUTH_USER_MODEL, related_name="topic_created_by", on_delete=PROTECT
     )
     updated = models.DateTimeField(auto_now=True)
     updated_by = models.ForeignKey(
-        User, related_name="topic_updated_by", on_delete=PROTECT
+        settings.AUTH_USER_MODEL, related_name="topic_updated_by", on_delete=PROTECT
     )
 
     def __str__(self):
@@ -93,11 +93,11 @@ class Resource(models.Model):
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(
-        User, related_name="resource_created_by", on_delete=PROTECT
+        settings.AUTH_USER_MODEL, related_name="resource_created_by", on_delete=PROTECT
     )
     updated = models.DateTimeField(auto_now=True)
     updated_by = models.ForeignKey(
-        User, related_name="resource_updated_by", on_delete=PROTECT
+        settings.AUTH_USER_MODEL, related_name="resource_updated_by", on_delete=PROTECT
     )
 
     def __str__(self):
