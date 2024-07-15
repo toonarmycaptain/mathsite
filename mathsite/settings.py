@@ -25,7 +25,7 @@ SECRET_KEY = "somesecretkeythatshouldbeverydifficulttoguessorcompletelyrandom"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]  # host name eg pythonanywhere.com, your url
+ALLOWED_HOSTS = ["127.0.0.1"]  # host name eg pythonanywhere.com, your url
 
 
 # Application definition
