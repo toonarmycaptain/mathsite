@@ -12,8 +12,14 @@
 -e file:.
 asgiref==3.8.1
     # via django
+    # via django-stubs
 django==5.0.7
+    # via django-stubs
+    # via django-stubs-ext
     # via mathsite
+django-stubs==5.0.2
+django-stubs-ext==5.0.2
+    # via django-stubs
 iniconfig==2.0.0
     # via pytest
 mypy==1.10.1
@@ -27,5 +33,9 @@ pytest==8.2.2
 ruff==0.5.1
 sqlparse==0.5.0
     # via django
+types-pyyaml==6.0.12.20240311
+    # via django-stubs
 typing-extensions==4.12.2
+    # via django-stubs
+    # via django-stubs-ext
     # via mypy

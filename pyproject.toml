@@ -21,6 +21,7 @@ dev-dependencies = [
     "pytest>=8.2.2",
     "ruff>=0.5.1",
     "mypy>=1.10.1",
+    "django-stubs>=5.0.2",
 ]
 
 [tool.hatch.metadata]
