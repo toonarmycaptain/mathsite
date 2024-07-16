@@ -6,50 +6,77 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('resources', '0001_initial'),
+        ("resources", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='topic',
-            name='created_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='topic_created_by', to=settings.AUTH_USER_MODEL),
+            model_name="topic",
+            name="created_by",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="topic_created_by",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='topic',
-            name='updated_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='topic_updated_by', to=settings.AUTH_USER_MODEL),
+            model_name="topic",
+            name="updated_by",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="topic_updated_by",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='resource',
-            name='created_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='resource_created_by', to=settings.AUTH_USER_MODEL),
+            model_name="resource",
+            name="created_by",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="resource_created_by",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='resource',
-            name='updated_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='resource_updated_by', to=settings.AUTH_USER_MODEL),
+            model_name="resource",
+            name="updated_by",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="resource_updated_by",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='subject',
-            name='created_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='subject_created_by', to=settings.AUTH_USER_MODEL),
+            model_name="subject",
+            name="created_by",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="subject_created_by",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='subject',
-            name='updated_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='subject_updated_by', to=settings.AUTH_USER_MODEL),
+            model_name="subject",
+            name="updated_by",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="subject_updated_by",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AddField(
-            model_name='topic',
-            name='subject',
-            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.PROTECT, to='resources.subject'),
+            model_name="topic",
+            name="subject",
+            field=models.ForeignKey(
+                default=None,
+                on_delete=django.db.models.deletion.PROTECT,
+                to="resources.subject",
+            ),
             preserve_default=False,
         ),
         migrations.DeleteModel(
-            name='User',
+            name="User",
         ),
     ]

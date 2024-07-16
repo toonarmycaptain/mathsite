@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+name: {{ resource.short_name }}<br>
+{% if resource.description %}
+    descr: {{ resource.description }}<br>
+{% endif %}
+{% if resource.link %}
+    <a href="{{ resource.link }}">{{ resource.link }}</a><br>
+{% endif %}
+Grade{% if resource.grade_level %}{% else %}s{% endif %}:
+{% if resource.grade_level %}
+    {{ resource.grade_level }}
+{% else %}
+    {{ resource.grade_level_min }}-{{ resource.grade_level_max }}
+{% endif %}
+<br>
