@@ -4,7 +4,6 @@ from django.conf import settings
 from django.db import models
 from django.db.models import SET_NULL, PROTECT
 
-
 grade_levels = [
     (
         "elementary",
@@ -88,7 +87,7 @@ class Resource(models.Model):
     grade_level = models.CharField(blank=True, max_length=2, choices=grade_levels)
     grade_level_min = models.CharField(blank=True, max_length=2, choices=grade_levels)
     grade_level_max = models.CharField(blank=True, max_length=2, choices=grade_levels)
-    link = models.URLField(blank=True)
+    link = models.URLField()
 
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
