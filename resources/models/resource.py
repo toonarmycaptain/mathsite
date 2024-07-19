@@ -100,4 +100,18 @@ class Resource(models.Model):
     )
 
     def __str__(self):
-        return self.short_name
+        vars = [
+            f"{self.short_name=}",
+            f"{self.long_name=}",
+            f"{self.subject=}",
+            f"{self.topic=}",
+            f"{self.grade_level=}",
+            f"{self.grade_level_min=}",
+            f"{self.grade_level_max=}",
+            f"{self.active=}",
+            f"{self.created=}",
+            f"{self.created_by=}",
+            f"{self.updated=}",
+            f"{self.updated_by=}",
+        ]
+        return f"{self.short_name}: {vars}"
