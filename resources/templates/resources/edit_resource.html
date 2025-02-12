@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<tr hx-target="this" hx-swap="outerHTML">
+    <form>
+        <td>
+            <input type="text" name="name" value="{{ resource.name }}" maxlength="200" required>
+        </td>
+        <td>
+            <button class="button is-small is-success" hx-post="{% url 'resources/update_resource' id=resource.id %}"
+                    hx-include="[name='name']">Save
+            </button>
+        </td>
+        <td>
+            <button class="button is-small is-warning" hx-get="{% url 'resources/view_resource' id=resource.id %}">
+                Cancel
+            </button>
+        </td>
+    </form>
+</tr>

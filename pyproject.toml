@@ -6,10 +6,11 @@ authors = [
     { name = "toonarmycaptain", email = "toonarmycaptain@hotmail.com" }
 ]
 dependencies = [
-    "django>=5.0.7",
+    "django>=5.1.0",
+    "kolo>=2.36.0",
 ]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.12"
 
 [build-system]
 requires = ["hatchling"]

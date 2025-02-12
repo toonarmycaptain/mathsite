@@ -1,0 +1,24 @@
+<tr id="new_resource">
+    <td>
+        <input type="text" name="name" maxlength="200" required id="id_name">
+    </td>
+    <td>
+        <button
+            class="button is-small is-success"
+            hx-post="{% url 'save_new_resource' %}"
+            hx-include="[name='name']"
+            hx-target="#resource_list"
+            hx-swap="outerHTML"
+        >Save
+        </button>
+    </td>
+    <td>
+        <button
+            class="button is-small is-warning"
+            hx-get="{% url 'create_resource' %}"
+            hx-target="#new_resource"
+            hx-swap="outerHTML"
+        >Cancel
+        </button>
+    </td>
+</tr>
