@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 
-name: {{ resource.short_name }}<br>
-Grade{% if resource.grade_level %}{% else %}s{% endif %}:
-{% if resource.grade_level %}
-    {{ resource.grade_level }}
-{% else %}
-    {{ resource.grade_level_min }}-{{ resource.grade_level_max }}
-{% endif %}
-<br>
-{% if resource.description %}
-    descr: {{ resource.description }}<br>
-{% endif %}
-{% if resource.link %}
-    <a href="{{ resource.link }}">{{ resource.link }}</a><br>
-{% endif %}
+<div id="resource-{{ resource.id }}">
+    name: {{ resource.short_name }}<br>
+    Grade{% if resource.grade_level %}{% else %}s{% endif %}:
+    {% if resource.grade_level %}
+        {{ resource.grade_level }}
+    {% else %}
+        {{ resource.grade_level_min }}-{{ resource.grade_level_max }}
+    {% endif %}
+    <br>
+    <strong>{{ resource.short_name }}</strong> - {{ resource.description }}
+    {% if resource.description %}
+        descr: {{ resource.description }}<br>
+    {% endif %}
+    {% if resource.link %}
+        <a href="{{ resource.link }}">{{ resource.link }}</a><br>
+    {% endif %}
+
+    <button hx-get="{% url 'update_resource' resource.id %}"
+            hx-target="#resource-{{ resource.id }}-form-container"
+            hx-swap="innerHTML">
+        Edit
+    </button>
+    <div id="resource-{{ resource.id }}-form-container"></div> <!-- HTMX loads form here -->
+</div>

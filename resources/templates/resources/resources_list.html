@@ -1,14 +1,19 @@
+<!-- resources_list.html -->
 <!DOCTYPE html>
 <table class="table" id="resource_list">
-    {% include 'resources/create_resource.html' %}
-    {% for subject, topic in resources.items %}
-        <h2>{{ subject }}</h2>
-        {% for topic, topic_resources in topic.items %}
-            <h3>{{ topic }}</h3>
-            {% for resource in topic_resources %}
-                {% include "resources/resource.html" with resource=resource %}
-                <br>
+    <div id="resource-list">
+        {% for subject, topic in resources.items %}
+            <h2>{{ subject }}</h2>
+            {% for topic, topic_resources in topic.items %}
+                <h3>{{ topic }}</h3>
+                {% for resource in topic_resources %}
+                    {% include "resources/resource.html" with resource=resource %}
+                    <br>
+                {% endfor %}
             {% endfor %}
         {% endfor %}
-    {% endfor %}
+    </div>
 </table>
+
+
+</div>

@@ -1,0 +1,8 @@
+<!-- resources/update_resource.html -->
+<form method="post" hx-post="{% url 'update_resource' resource.id %}" hx-target="#resource-{{ resource.id }}"
+      hx-swap="outerHTML">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Update Resource</button>
+</form>

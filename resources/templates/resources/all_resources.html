@@ -1,13 +1,19 @@
+<!-- all_resources.html -->
 {% extends 'resources/base.html' %}
 
-{% block head %}
-    <meta charset="UTF-8">
-    <title>Resources</title>
-{% endblock %}
-
 {% block body %}
-
     <h1>Resources</h1>
     {% include 'resources/resources_list.html' %}
 
+
+    <!-- Wrap the button and form container in a parent div to control the swap -->
+    <div id="add-resource-container">
+        <!-- The Add Resource button that triggers the form, should replace the button with the form -->
+        <button hx-get="{% url 'create_resource' %}" hx-target="#add-resource-container" hx-swap="outerHTML">
+            Add Resource
+        </button>
+    </div>
+
+    <!-- The container where the form will be injected, initially empty -->
+    <div id="form-container"></div>
 {% endblock %}
